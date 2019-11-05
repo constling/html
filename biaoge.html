@@ -1,228 +1,254 @@
 <head>
-    <title>constling</title>
-    <script>
-        function buttonClicked() {
+        <title>constling</title>
+        <script>
+                function buttonClicked() {
 
-            var element = event.currentTarget;
+                        var element = event.currentTarget;
 
-            if (element.style.backgroundColor == "red") {
+                        if (element.style.backgroundColor == "red") {
 
-                element.style.backgroundColor = "gray"
-            } else {
-                element.style.backgroundColor = "red"
-            }
-        }
-        function refreshClicked() {
-            location.reload(true)
-        }
-    </script>
+                                element.style.backgroundColor = "gray"
+                        } else {
+                                element.style.backgroundColor = "red"
+                        }
+                }
 
-    <style>
-        .dinner {
-            display:flex;
-            margin:10px 40px 10px 40px;
-        }
+                function resetChilds(node) {
 
-        .container {
-            flex:1;
-            position: relative;
-            margin:2px 10px 2px 10px;
-        }
+                        var childs = node.childNodes;
+                        
+                        if (undefined == childs || 0 == childs.length) {
 
-        .container:before {
-            content: " ";
-            display: block;
-            padding-top: 100%;
-        }
+                                return
+                        }
 
-        .container .item {
-            position: absolute;
-            top: 0; bottom: 0; right: 0; left: 0;
-            background-color:gray;
-            border:1px;
-            border-radius: 100%;
-        }
+                        for (var i = childs.length - 1; i >= 0; i--) {
 
-        .button-bottom
-        { 
-            width:400px;
-            height:120px;
-            border-radius:40px;
-            background-color: blue;
-            border:2px;
-            border-radius: 50px 50px 50px 50px;
-            font-size: 40pt;
-            color: #FFFFFF;
-        }
+                                var item = childs[i];
+                                if (undefined == item.className) {
+                                        continue;
+                                }
 
-    </style>
+                                if (item.className.indexOf("item") != -1) {
+                                        item.style.backgroundColor = "gray"
+                                }
+
+                                resetChilds(item)
+                        }
+                }
+
+                function refreshClicked() {
+                        resetChilds(document.body)
+                }
+        </script>
+
+        <style>
+                .dinner {
+                        display: flex;
+                        margin: 10px 40px 10px 40px;
+                }
+
+                .container {
+                        flex: 1;
+                        position: relative;
+                        margin: 2px 10px 2px 10px;
+                }
+
+                .container:before {
+                        content: " ";
+                        display: block;
+                        padding-top: 100%;
+                }
+
+                .container .item {
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                        right: 0;
+                        left: 0;
+                        background-color: gray;
+                        border: 1px;
+                        border-radius: 100%;
+                }
+
+                .button-bottom {
+                        width: 400px;
+                        height: 120px;
+                        border-radius: 40px;
+                        background-color: blue;
+                        border: 2px;
+                        border-radius: 50px 50px 50px 50px;
+                        font-size: 40pt;
+                        color: #FFFFFF;
+                }
+        </style>
 </head>
 
 <body>
-    <div class="dinner">
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-    </div>
-    <div class="dinner">
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-    </div>
-    <div class="dinner">
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-    </div>
-    <div class="dinner">
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-    </div>
-    <div class="dinner">
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-    </div>
-    <div class="dinner">
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-    </div>
-    <div class="dinner">
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-            <div class="container">
-                    <div class="item" onclick="buttonClicked()"></div>
-            </div>
-    </div>
-    <br />
-    <div style="display:flex;justify-content:center;">
-        <button class="button-bottom" onclick="refreshClicked()">Refresh</button>
-    </div>
+        <div class="dinner">
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+        </div>
+        <div class="dinner">
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+        </div>
+        <div class="dinner">
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+        </div>
+        <div class="dinner">
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+        </div>
+        <div class="dinner">
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+        </div>
+        <div class="dinner">
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+        </div>
+        <div class="dinner">
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+                <div class="container">
+                        <div class="item" onclick="buttonClicked()"></div>
+                </div>
+        </div>
+        <br />
+        <div style="display:flex;justify-content:center;">
+                <button class="button-bottom" onclick="refreshClicked()">Refresh</button>
+        </div>
 
 </body>
